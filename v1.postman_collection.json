@@ -1,0 +1,1704 @@
+{
+	"info": {
+		"_postman_id": "328f3ebc-d131-4665-982e-0640bb491b8f",
+		"name": "v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28624479",
+		"_collection_link": "https://blue-sunset-165829.postman.co/workspace/My-Workspace~ecdcf243-8c11-42c9-8536-9b0c386c408d/collection/28624115-328f3ebc-d131-4665-982e-0640bb491b8f?action=share&creator=28624479&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "abc",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "mobile",
+									"value": "9876543333",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "c_password",
+									"value": "123456789",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/new_register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"new_register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "new_register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "mobile",
+									"value": "9876543234",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "c_password",
+									"value": "123456789",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{LOCAL}}new_register",
+							"host": [
+								"{{LOCAL}}new_register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "check_login_password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "mobile",
+									"value": "7440147634",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Abcde",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{LOCAL}}check_login_password",
+							"host": [
+								"{{LOCAL}}check_login_password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "mobile",
+									"value": "9674419914",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}login",
+							"host": [
+								"{{URL}}login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "edit_profile",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "24|6YB0Jp0se0tPiYBGZJfbk0ColdRI0o1biEmH2pib",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "23|pEd7QmgyVsDYw5Siq3BnteXGf6bHx918fThByfDD",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "token",
+									"value": "24|6YB0Jp0se0tPiYBGZJfbk0ColdRI0o1biEmH2pib",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/edit_profile",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"edit_profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateprofile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "126|YDHmNua2x4he7hgNpdrBNzi7n49wWVehzfPECXbf",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Sham",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "m",
+									"type": "text"
+								},
+								{
+									"key": "mobile",
+									"value": "9674419914",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "abc@def.com",
+									"type": "text"
+								},
+								{
+									"key": "dob",
+									"value": "2013-12-02",
+									"type": "text"
+								},
+								{
+									"key": "blood_group",
+									"value": "o+",
+									"type": "text"
+								},
+								{
+									"key": "profile_pic",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "safafaf",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "safsafasfsaf sdafsafasfasfas safsaf",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "\"active\"",
+									"type": "text"
+								},
+								{
+									"key": "\"created_by\"",
+									"value": "null",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "\"updated_by\"",
+									"value": "null",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "\"deleted_by\"",
+									"value": "null",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "\"created_at\"",
+									"value": "\"2023-07-10T07:51:21.000000Z\"",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "\"updated_at\"",
+									"value": "\"2023-07-10T07:51:21.000000Z\"",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "\"deleted_at\"",
+									"value": "null",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/update_profile",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"update_profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "City",
+			"item": [
+				{
+					"name": "CityList",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|A8j09m1OJabOiM0FF1cBIepMnWCAZqZ58s2WHz0a",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL}}cityList/",
+							"host": [
+								"{{LOCAL}}cityList"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "CategoryList",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/categorylist",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categorylist"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Services List",
+			"item": [
+				{
+					"name": "ServicesList Based on Clinic id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "clinic_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/clinic/1/serviceslist",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"clinic",
+								"1",
+								"serviceslist"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MedicaldepartmentList",
+			"item": [
+				{
+					"name": "medical department list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/clinic/1/medicaldepartmentlist",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"clinic",
+								"1",
+								"medicaldepartmentlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "medicaldepartmentlistbypincode",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "pincode",
+									"value": "700091",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/clinic/1/medicaldepartmentlistbypincode",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"clinic",
+								"1",
+								"medicaldepartmentlistbypincode"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "medicaldepartmentlistbysearchquery",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "keywords",
+									"value": "asadads",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/clinic/1/medicaldepartmentlistbysearchquery",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"clinic",
+								"1",
+								"medicaldepartmentlistbysearchquery"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search citywise search query base medical department",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/medical-department/1/city/3/search/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"medical-department",
+								"1",
+								"city",
+								"3",
+								"search",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Doctor List",
+			"item": [
+				{
+					"name": "DoctorList",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "6|xZCcHaExeHKSLzx4Ezx7dUTRnThupSjgRcgXGW86",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "clinic_id",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}clinic/1/doctorlist",
+							"host": [
+								"{{URL}}clinic"
+							],
+							"path": [
+								"1",
+								"doctorlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DoctorListByName",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "6|xZCcHaExeHKSLzx4Ezx7dUTRnThupSjgRcgXGW86",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "searchkey",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "per_page",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "pageNumber",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}doctorlistbyname",
+							"host": [
+								"{{URL}}doctorlistbyname"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "doctorlistbyname_LIVE_Server",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "6|xZCcHaExeHKSLzx4Ezx7dUTRnThupSjgRcgXGW86",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "searchkey",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "per_page",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "pageNumber",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}doctorlistbyname",
+							"host": [
+								"{{URL}}doctorlistbyname"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search citywise search query base doctor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "6|xZCcHaExeHKSLzx4Ezx7dUTRnThupSjgRcgXGW86",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}doctors/city/1/search/",
+							"host": [
+								"{{URL}}doctors"
+							],
+							"path": [
+								"city",
+								"1",
+								"search",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Doctor Details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|XDJ1bDSobMmXOQIyBynC8bAROiEfi8hzFnWl5bSb",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL}}doctor/1/show",
+							"host": [
+								"{{LOCAL}}doctor"
+							],
+							"path": [
+								"1",
+								"show"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ClinicList",
+			"item": [
+				{
+					"name": "ClinicList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/clinicList",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"clinicList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search_clinic",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "pincode",
+									"value": "700091",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/clinic/pincode/700091/search/test Cli",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"clinic",
+								"pincode",
+								"700091",
+								"search",
+								"test Cli"
+							],
+							"query": [
+								{
+									"key": "pinccode",
+									"value": "700091",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Clinic by Pincode",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/clinic/pincode/987654",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"clinic",
+								"pincode",
+								"987654"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "clinic details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "14|oJsI0gKfuWVHRWUVZS0PNZ0U7eKHAIXlZmLm6mCz",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}clinic/1/details",
+							"host": [
+								"{{URL}}clinic"
+							],
+							"path": [
+								"1",
+								"details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search citywise searchquery base clinic",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/clinic/city/3/search/t",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"clinic",
+								"city",
+								"3",
+								"search",
+								"t"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Clinic_user_rating",
+			"item": [
+				{
+					"name": "clinic_user_rating",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "7|S8jDdsorEg0GCTvY5Kn8PzIQO1UFoHyY1mcQKh6l",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "clinic_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "app_user_id",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "rating",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "message",
+									"value": "asfsaf assa fsadf sf saf sadfasf asf sasfad sadf",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "inactive",
+									"type": "text"
+								},
+								{
+									"key": "created_by",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "image_name",
+									"type": "file",
+									"src": "/home/desunub2/Pictures/Screenshots/Screenshot from 2023-07-07 12-20-07.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}clinic_user_rating",
+							"host": [
+								"{{URL}}clinic_user_rating"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Doctor_slots",
+			"item": [
+				{
+					"name": "doctor_list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{URL}}show_doctor_slot",
+							"host": [
+								"{{URL}}show_doctor_slot"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show-doctor-slot-by-doctor-id-and-date",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "6|xZCcHaExeHKSLzx4Ezx7dUTRnThupSjgRcgXGW86",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}doctor-slot/doctor/3/date/2023-08-07",
+							"host": [
+								"{{URL}}doctor-slot"
+							],
+							"path": [
+								"doctor",
+								"3",
+								"date",
+								"2023-08-07"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Booking",
+			"item": [
+				{
+					"name": "Booking Creation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|XDJ1bDSobMmXOQIyBynC8bAROiEfi8hzFnWl5bSb",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "clinic_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "service_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "doctor_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "doctor_slot_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "transaction_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "platform_charge",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "disease_name",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "patient_name",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "patient_gender",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "patient_mobile",
+									"value": "7250634942",
+									"type": "text"
+								},
+								{
+									"key": "patient_email",
+									"value": "test@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "patient_dob",
+									"value": "2023-10-12",
+									"type": "text"
+								},
+								{
+									"key": "patient_address",
+									"value": "dsfds",
+									"type": "text"
+								},
+								{
+									"key": "patient_blood_group",
+									"value": "sdf",
+									"type": "text"
+								},
+								{
+									"key": "patient_profile_pic",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "aadhar_no",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "adhar_card_front",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "adhar_card_back",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "booking_amount",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "full_amount",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "remaining_amount",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "doc",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "patient_profile_pic",
+									"type": "file",
+									"src": "/home/desunub2/Downloads/1687159893299.JPEG"
+								},
+								{
+									"key": "adhar_card_front",
+									"value": "",
+									"type": "file"
+								},
+								{
+									"key": "booking_date",
+									"value": "2023-10-13",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{LOCAL}}booking_creation",
+							"host": [
+								"{{LOCAL}}booking_creation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Booking Update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "clinic_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "service_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "doctor_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "app_user_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "doctor_slot_id",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "booking_date",
+									"value": "2023-07-26",
+									"type": "text"
+								},
+								{
+									"key": "disease_name",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "patient_name",
+									"value": "TestUser02",
+									"type": "text"
+								},
+								{
+									"key": "patient_gender",
+									"value": "Male",
+									"type": "text"
+								},
+								{
+									"key": "patient_mobile",
+									"value": "9876543210",
+									"type": "text"
+								},
+								{
+									"key": "patient_email",
+									"value": "abc@def.com",
+									"type": "text"
+								},
+								{
+									"key": "patient_dob",
+									"value": "2023-07-23",
+									"type": "text"
+								},
+								{
+									"key": "patient_address",
+									"value": "dsfasfasfsafas",
+									"type": "text"
+								},
+								{
+									"key": "patient_blood_group",
+									"value": "AB-",
+									"type": "text"
+								},
+								{
+									"key": "aadhar_no",
+									"value": "123456789123456",
+									"type": "text"
+								},
+								{
+									"key": "booking_amount",
+									"value": "2500",
+									"type": "text"
+								},
+								{
+									"key": "full_amount",
+									"value": "5000",
+									"type": "text"
+								},
+								{
+									"key": "remaining_amount",
+									"value": "2500",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "sadfasf sadf sadf asfasdfgas bfsf ",
+									"type": "text"
+								},
+								{
+									"key": "booking_status",
+									"value": "confirmed",
+									"type": "text"
+								},
+								{
+									"key": "booking_status_change_by",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "`status`",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "created_by",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "patient_profile_pic",
+									"value": "",
+									"type": "file"
+								},
+								{
+									"key": "adhar_card_front",
+									"type": "file",
+									"src": "/home/desunub2/Downloads/1687159893299.JPEG"
+								},
+								{
+									"key": "adhar_card_back",
+									"value": "",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/booking_update/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"booking_update",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "booking_history",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|A8j09m1OJabOiM0FF1cBIepMnWCAZqZ58s2WHz0a",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL}}booking_history",
+							"host": [
+								"{{LOCAL}}booking_history"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DepartmentType",
+			"item": [
+				{
+					"name": "departmenttypelist",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "5|uLWEcqqflmqpIhVHSUvP7dWPaLK7HJSwzSOrkDi9",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://gym.ehostingguru.com/public/api/departmenttypelist",
+							"protocol": "https",
+							"host": [
+								"gym",
+								"ehostingguru",
+								"com"
+							],
+							"path": [
+								"public",
+								"api",
+								"departmenttypelist"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Logout",
+			"item": [
+				{
+					"name": "Logout",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "favourite",
+			"item": [
+				{
+					"name": "favouriteList",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "14|oJsI0gKfuWVHRWUVZS0PNZ0U7eKHAIXlZmLm6mCz",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}favouritelist",
+							"host": [
+								"{{URL}}favouritelist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|3JvU6LqaFZ0tggCey8yOmqoGEE4nIBqcEoNkgE9q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "clinic_id",
+									"value": "1",
+									"description": "optional paramiter if clinic send clinic id",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "doctor_id",
+									"value": "1",
+									"description": "optional paramiter if doctor send doctor id",
+									"type": "text"
+								},
+								{
+									"key": "medical_department_id",
+									"value": "4",
+									"description": "optional paramiter if medical department send medical department id",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{LOCAL}}favourite/store",
+							"host": [
+								"{{LOCAL}}favourite"
+							],
+							"path": [
+								"store"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "StaticPage",
+			"item": [
+				{
+					"name": "staticpageDetails",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "6|xZCcHaExeHKSLzx4Ezx7dUTRnThupSjgRcgXGW86",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}staticpage/type/about",
+							"host": [
+								"{{URL}}staticpage"
+							],
+							"path": [
+								"type",
+								"about"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Forget Password",
+			"item": [
+				{
+					"name": "Forget Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "app_user_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "raja12345",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "raja12345",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{LOCAL}}forget-password",
+							"host": [
+								"{{LOCAL}}forget-password"
+							],
+							"query": [
+								{
+									"key": "password",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Settings",
+			"item": [
+				{
+					"name": "Settins",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "10|8C2Wi0mngjxAZm6UEtffRTnBhf4nHOy6pcWtIQWk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}settings",
+							"host": [
+								"{{URL}}settings"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notification",
+			"item": [
+				{
+					"name": "notification",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}notification",
+							"host": [
+								"{{URL}}notification"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "5|uLWEcqqflmqpIhVHSUvP7dWPaLK7HJSwzSOrkDi9"
+		}
+	]
+}

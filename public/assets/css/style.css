@@ -1,0 +1,88 @@
+
+
+.sidebar-default .iq-sidebar-menu .iq-menu>li.active>a {
+    color: #fff;
+    text-decoration: none;
+    background: #2e7138;
+}
+
+.btn i {
+    margin-right: 0px;
+}
+
+.table td {
+    padding: 3px 20px !important;
+    border: 0;
+    border: 1px solid gray;
+
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.table .ligth th {
+    padding: 3px 20px !important;
+    border: 1px solid gray;
+
+}
+
+.dataTables_filter input {
+    height: 35px;
+}
+
+label {
+    text-transform: capitalize;
+}
+
+.required::after {
+    content: " *";
+    color: red;
+}
+
+.optional::after {
+    content: " (optional)";
+}
+
+
+
+.tooltip1 span {
+    visibility: hidden;
+    min-width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 2px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 2;
+}
+
+.tooltip1:hover span {
+    visibility: visible;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding: 0.0em 0rem !important;
+}
+.iq-sidebar-menu .iq-menu li a {
+    padding: 10px 20px;
+}
+
+.clinic-button
+a,button{
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+table th{
+    text-transform: capitalize !important;
+}
+.font-30{
+    font-size: 30px;
+}
+
+.btn-warning{
+    margin-top: -5px;
+}
