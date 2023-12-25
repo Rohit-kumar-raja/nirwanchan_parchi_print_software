@@ -17,7 +17,7 @@ class NoteController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public $page = 'Parchi';
+    public $page = 'सभी  पार्ची';
     public function index(Request $request)
     {
         $page = $this->page;

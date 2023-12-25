@@ -46,7 +46,7 @@
                 <li
                     class="{{ Route::is('note.index') ? 'active' : '' }} {{ Route::is('note.create') ? 'active' : '' }} {{ Route::is('note.edit') ? 'active' : '' }}">
                     <a href="{{ route('note.index') }}" class="svg-icon">
-                        <i class="fas fa-book"></i> <span class="ml-4">Note</span>
+                        <i class="fas fa-book"></i> <span class="ml-4"> सभी  पार्ची</span>
 
                     </a>
                 </li>
