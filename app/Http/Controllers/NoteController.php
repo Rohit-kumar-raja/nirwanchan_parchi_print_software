@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\ParchiImport;
 use App\Models\Category;
 use App\Models\Note;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Validator;
 use Exception;
+use Maatwebsite\Excel\Facades\Excel;
 
 class NoteController extends Controller
 {
@@ -177,5 +179,13 @@ class NoteController extends Controller
             $data['data'] = Note::where('id', $id)->get();
         }
         return view('note.print', $data);
+    }
+
+    public function import(Request $request)
+    {
+        $file_name = $this->insert_image($request->file('file'), 'Xl');
+        Excel::import(new ParchiImport, $file_name);
+        unlink($file_name);
+        return response()->json(['success' => $this->page . " SuccessFully Updated "]);
     }
 }

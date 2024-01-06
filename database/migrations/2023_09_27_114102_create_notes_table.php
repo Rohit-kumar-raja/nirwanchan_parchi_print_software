@@ -31,13 +31,13 @@ return new class extends Migration
             $table->string('gender');
             $table->string('nirvachan_name_eng');
             $table->string('relative_name_eng');
-        
-            // $table->timestamps();  // by this method create two columns created_at and updated_at
-            // $table->softDeletes();
-            // // creating the relationship on three columns created_at , updated_at and deleted_at
-            // $table->foreign('created_by')->references('id')->on('users');
-            // $table->foreign('updated_by')->references('id')->on('users');
-            // $table->foreign('deleted_by')->references('id')->on('users');
+
+            $table->timestamps();  // by this method create two columns created_at and updated_at
+            $table->softDeletes();
+            // creating the relationship on three columns created_at , updated_at and deleted_at
+            $table->foreignId('created_by')->references('id')->on('users');
+            $table->foreignId('updated_by')->nullable()->references('id')->on('users');
+            $table->foreignId('deleted_by')->nullable()->references('id')->on('users');
         });
     }
 

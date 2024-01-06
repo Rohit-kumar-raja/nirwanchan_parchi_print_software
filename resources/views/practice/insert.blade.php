@@ -9,7 +9,8 @@
             </div>
             <!-- Modal body -->
             <div class="modal-body ">
-                <form id="form_data" action="{{ route('practice.store') }}" method="POST" enctype="multipart/form-data">
+                <form id="form_data" action="{{ route('practice.store') }}" method="POST"
+                    enctype="multipart/form-data">
                     <div class="row px-3">
                         @csrf
                         <div class="col-sm-6">
@@ -62,10 +63,10 @@
                                 <select id="answere" required type="text" class="form-control"
                                     placeholder="Enter Answer" name="answere">
                                     <option selected disabled> - Select Answer - </option>
-                                    <option value="A" >A</option>
-                                    <option value="B" >B</option>
-                                    <option value="C" >C</option>
-                                    <option value="D" >D</option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
                                 </select>
                             </div>
                         </div>
@@ -75,9 +76,9 @@
                                 <select id="is_publish" required type="text" class="form-control"
                                     placeholder="Enter Answer" name="is_publish">
                                     <option selected disabled> - Select Answer - </option>
-                                    <option value="no" >NO</option>
-                                    <option value="yes" >YES</option>
-                        
+                                    <option value="no">NO</option>
+                                    <option value="yes">YES</option>
+
                                 </select>
                             </div>
                         </div>

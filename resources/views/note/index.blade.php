@@ -12,7 +12,8 @@
                                     <h4 class="card-title">{{ $page }} List</h4>
                                 </div>
 
-
+                                <a class="btn btn-primary add-list btn-sm text-white" data-toggle="modal"
+                                data-target="#myModal"><i class="las la-plus mr-3"></i>Import {{ $page }}</a>
                                 <a target="_blank" class="btn btn-primary add-list btn-sm text-white" href="{{ route('generate.print')}}"  ><i class="las la-print mr-3"></i>Print {{ $page }}</a>
                             </div>
                             <div class="card-body">
