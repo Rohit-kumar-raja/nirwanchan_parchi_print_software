@@ -183,6 +183,7 @@ class NoteController extends Controller
 
     public function import(Request $request)
     {
+        dd($request);
         $file_name = $this->insert_image($request->file('file'), 'Xl');
         Excel::import(new ParchiImport, $file_name);
         unlink($file_name);

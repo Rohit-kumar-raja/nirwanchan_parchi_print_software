@@ -14,7 +14,7 @@ class ParchiImport implements ToModel
      */
     public function model(array $row)
     {
-        $row = (array)$row;
+        dd($row);
         $data = [
             'page' => $row[0] ?? 'null',
             'data' => $row[1] ?? 'null',

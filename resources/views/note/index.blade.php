@@ -10,18 +10,57 @@
                             <div class="card-header d-flex justify-content-between">
                                 <div class="header-title">
                                     <h4 class="card-title">{{ $page }} List</h4>
+                                    {{-- <div class="selectedDiv"> Selected row are: </div> --}}
                                 </div>
 
                                 <a class="btn btn-primary add-list btn-sm text-white" data-toggle="modal"
-                                data-target="#myModal"><i class="las la-plus mr-3"></i>Import {{ $page }}</a>
-                                <a target="_blank" class="btn btn-primary add-list btn-sm text-white" href="{{ route('generate.print')}}"  ><i class="las la-print mr-3"></i>Print {{ $page }}</a>
+                                    data-target="#myModal"><i class="las la-plus mr-3"></i>Import {{ $page }}</a>
+
+                                {{-- Drop Down Added --}}
+                                <div>
+
+                                    <select class="form-control btn-sm btn">
+                                        <option voptionlue="">8 * 1</option>
+                                        <option value="">10 * 1</option>
+                                        <option value="">12 * 1</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <div class="dropdown">
+
+                                        {{-- लोकसभा,नगर पालिका,नागरनिगम --}}
+                                        <select class=" form-control" aria-labelledby="dropdownMenuButton">
+                                            <option value="">लोकसभा</option>
+                                            <option value="">नगर पालिका</option>
+                                            <option value="">नागरनिगम</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="dropdown">
+                          
+                                        <select class="form-control">
+                                            <option value="">साथ</option>
+                                            <option value="">बिना</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                {{-- DropDown Button Ended --}}
+
+                                <a target="_blank" class="btn btn-primary add-list btn-sm text-white"
+                                    href="{{ route('generate.print') }}"><i class="las la-print mr-3"></i>Print
+                                    {{ $page }}</a>
                             </div>
+
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class=" datatable table   table-striped ">
+                                    <table class=" datatable table table-striped " id="tblData">
                                         <thead>
-                                            <tr class="ligth">
+                                            <tr class="light">
                                             <tr>
+                                                <th>
+                                                    {!! '<input type="checkbox" name="" class="allchecked" id="chkall" /> ' !!}
+                                                </th>
                                                 <th>S.no</th>
                                                 <th>page</th>
                                                 <th>data</th>
@@ -43,7 +82,6 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-
                                         </tbody>
 
                                     </table>
@@ -60,8 +98,19 @@
                                                 ajax: "{{ route('note.index') }}",
 
                                                 columns: [{
+                                                        orderable: false,
+                                                        searchable: false,
+                                                        render(h) {
+
+                                                            return '<input type="checkbox" name="" class="allchecked" id="chkall" /> ';
+                                                        },
+                                                    },
+
+                                                    {
                                                         data: 'DT_RowIndex',
-                                                        name: 'DT_RowIndex'
+                                                        name: 'DT_RowIndex',
+                                                        orderable: false,
+                                                        searchable: false
                                                     },
                                                     {
                                                         data: 'page',
@@ -78,6 +127,10 @@
                                                     {
                                                         data: 'loksabha_name',
                                                         name: 'loksabha_name'
+                                                    },
+                                                    {
+                                                        data: 'assembly_name',
+                                                        name: 'assembly_name'
                                                     },
                                                     {
                                                         data: 'both',
