@@ -19,60 +19,68 @@
     }
 
     .d p {
-        line-height: 0.5;
+        line-height: 0.3;
 
     }
 
     .s p {
         line-height: 1.0;
     }
+
+    .custom-m {
+        margin-top: 15.5px;
+    }
 </style>
 
 <body>
-
-    <h1 class="p-2 text-center border-bottom  border-2"> <b>नागर पालिका आम निर्वाचन , (बिहार)</b></h1>
-
-    <div class="row">
+    {{-- <h1 class="p-2 text-center border-bottom  border-2"> <b>नागर पालिका आम निर्वाचन , (बिहार)</b></h1> --}}
+    <div class="row ">
         @foreach ($data as $d)
-            <div class="col-6 mt-4">
-                <div class="card p-2">
+            <div
+                class=" @if (request()->format == '12') col-4 @elseif (request()->format == '10') col-6 mt-4  @else col-6 mt-4 @endif  custom-m ">
+                <div class="card p-2 pt-2">
                     <div class="row w">
                         <div class="col-6">
-                            <p><b>नगर निगम, {{$d->nirwachan_name}}</b></p>
-                            <p><b>क्रमांक :{{ $d->s_no}}</b></p>
+                            <p><b>नगर निगम, {{ $d->nirwachan_name }}</b></p>
+                            <p><b>क्रमांक :{{ $d->s_no }}</b></p>
                         </div>
                         <div class="col-6 ">
-                            <p class=""><b>वार्ड संख्या :{{$d->data}}</b></p>
-                            <p class=""><b>{{ $d->epic}}</b> </p>
+                            <p class=""><b>वार्ड संख्या :{{ $d->data }}</b></p>
+                            @if (request()->epic == 'with')
+                                <p class=""><b>{{ $d->epic }}</b> </p>
+                            @endif
                         </div>
                     </div>
 
                     <div class="row s">
-                        <div class="col-9">
+                        <div class=" @if (request()->format == '12') col-12 @else col-9 @endif">
                             <div class="">
-                                <h4 class="text-danger">निर्वाचक का नाम : {{ $d->nirwachan_name}}</h4>
-                                <h6><b>  {{ $d->relative_name}}</b></h6>
-                                <p class="text-danger">उम : {{$d->age}}</p>
+                                <h4 class="text-danger">निर्वाचक का नाम : {{ $d->nirwachan_name }}</h4>
+                                <h6><b> {{ $d->relative_name }}</b></h6>
+                                <p class="text-danger">उम : {{ $d->age }}</p>
                                 <div class="row d">
                                     <div class="col-6">
-                                        <p class="text-danger">गृह सांख्य : {{$d->house}}</p>
+                                        <p class="text-danger">गृह सांख्य : {{ $d->house }}</p>
 
                                     </div>
                                     <div class="col-6 ">
-                                        <p class=" text-danger">लिंग: {{$d->gender}}</p>
+                                        <p class=" text-danger">लिंग: {{ $d->gender }}</p>
                                     </div>
                                 </div>
                                 <p> <b>मतदान का तरीक : 09-06-2023</b>
                                 </p>
-                                <p> <b> मतदान का सांख्य वा नाम :- {{$d->both}} ||
-                                    * मतदपतप ससचच पगष ससखखप 2 और कम ससखखप 1 पर दख</b>
+                                <p> <b> मतदान का सांख्य वा नाम :- {{ $d->both }} ||
+                                        * मतदपतप ससचच पगष ससखखप 2 और कम ससखखप 1 पर दख</b>
                             </div>
 
 
                         </div>
-                        <div class="col-3">
-                            <img src="{{ asset('assets/images/profile/avtar.jpg') }}" class="img-fluid" alt="">
-                        </div>
+                        @if (request()->format != '12')
+                            <div class="col-3">
+                                <img width="100px" src="{{ asset('assets/images/profile/avtar.jpg') }}"
+                                    class="img-fluid" alt="">
+                            </div>
+                        @endif
                     </div>
 
                 </div>

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ParchiExport;
 use App\Imports\ParchiImport;
 use App\Models\Category;
 use App\Models\Note;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Validator;
@@ -171,19 +173,20 @@ class NoteController extends Controller
         }
     }
 
-    function print($id = null)
+    function print(Request $request, $id = null)
     {
         if ($id == null) {
             $data['data'] = Note::all();
         } else {
             $data['data'] = Note::where('id', $id)->get();
         }
+
+
         return view('note.print', $data);
     }
 
     public function import(Request $request)
     {
-        dd($request);
         $file_name = $this->insert_image($request->file('file'), 'Xl');
         Excel::import(new ParchiImport, $file_name);
         unlink($file_name);

@@ -7,49 +7,64 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card">
-                            <div class="card-header d-flex justify-content-between">
-                                <div class="header-title">
+                            <div class="card-header row justify-content-between">
+                                <div class="header-title col-2">
+                                    <a href="{{route('generate.print')}}" download="raja">ksdjfk</a>
+
                                     <h4 class="card-title">{{ $page }} List</h4>
                                     {{-- <div class="selectedDiv"> Selected row are: </div> --}}
                                 </div>
+                                <div class="col-2"> <a class="btn btn-primary add-list btn-sm text-white" data-toggle="modal"
+                                        data-target="#myModal"><i class="las la-plus mr-3"></i>Import
+                                        {{ $page }}</a></div>
 
-                                <a class="btn btn-primary add-list btn-sm text-white" data-toggle="modal"
-                                    data-target="#myModal"><i class="las la-plus mr-3"></i>Import {{ $page }}</a>
 
                                 {{-- Drop Down Added --}}
-                                <div>
+                             <div class="col-8">
+                                <form action="{{ route('generate.print') }}" target="_blank">
 
-                                    <select class="form-control btn-sm btn">
-                                        <option voptionlue="">8 * 1</option>
-                                        <option value="">10 * 1</option>
-                                        <option value="">12 * 1</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <div class="dropdown">
+                                    <div class="row gap-3">
+                                        <div class="col-sm-3">
+                                            <label class="m-0" for="">Print Format</label>
+                                            <select name="format" class="form-control btn-sm btn">
+                                                <option value="8">8 * 1</option>
+                                                <option value="10">10 * 1</option>
+                                                <option value="12">12 * 1</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="dropdown">
 
-                                        {{-- लोकसभा,नगर पालिका,नागरनिगम --}}
-                                        <select class=" form-control" aria-labelledby="dropdownMenuButton">
-                                            <option value="">लोकसभा</option>
-                                            <option value="">नगर पालिका</option>
-                                            <option value="">नागरनिगम</option>
-                                        </select>
+                                                <label class="m-0" for="">Print For</label> 
+                                                <select name="print_for"
+                                                    class=" form-control" aria-labelledby="dropdownMenuButton">
+                                                    <option value="lockshabha">लोकसभा</option>
+                                                    <option value="nagerpalika">नगर पालिका</option>
+                                                    <option value="nagernigam">नागरनिगम</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="dropdown">
+                                                <label class="m-0" for="">Epic No.</label>
+                                                <select name="epic" class="form-control">
+                                                    <option value="with">साथ</option>
+                                                    <option value="without">बिना</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-2 pt-2">
+                                            <button type="submit" class="btn btn-primary add-list btn-sm text-white mt-4 "><i
+                                                class="las la-print mr-3"></i>Print
+                                            {{ $page }}</button>
+                                        </div>
                                     </div>
-                                </div>
-                                <div>
-                                    <div class="dropdown">
-                          
-                                        <select class="form-control">
-                                            <option value="">साथ</option>
-                                            <option value="">बिना</option>
-                                        </select>
-                                    </div>
-                                </div>
+                             
+                                </form>
+                             </div>
                                 {{-- DropDown Button Ended --}}
 
-                                <a target="_blank" class="btn btn-primary add-list btn-sm text-white"
-                                    href="{{ route('generate.print') }}"><i class="las la-print mr-3"></i>Print
-                                    {{ $page }}</a>
+
                             </div>
 
                             <div class="card-body">
