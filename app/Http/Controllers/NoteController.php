@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Exports\ParchiExport;
 use App\Imports\ParchiImport;
 use App\Models\Category;
 use App\Models\Note;
-use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Validator;
 use Exception;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\DB;
 
 class NoteController extends Controller
 {
@@ -26,7 +25,9 @@ class NoteController extends Controller
     {
         $page = $this->page;
         if ($request->ajax()) {
-            $data = Note::with('category')->orderByDesc('id')->get();
+            $data = DB::table('notes')->select(['id', 'page', 'data', 's_no', 'loksabha_name', 'assembly_name', 'both', 'part', 
+            'section', 'epic', 'nirwachan_name', 'relative_name', 'age', 'house', 'gender', 
+            'nirvachan_name_eng', 'relative_name_eng'])->orderBy('nirwachan_name', 'ASC')->get();
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
@@ -38,9 +39,8 @@ class NoteController extends Controller
                 ->make(true);
         }
         $categories = Category::where('deleted_at', null)->get();
-        return view('note.index', compact('page', 'categories'));
+        return view('note.index', compact('page'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -176,7 +176,7 @@ class NoteController extends Controller
     function print(Request $request, $id = null)
     {
         if ($request->selected_item != '') {
-            $data['data'] = Note::whereIn('id',explode(',',$request->selected_item))->get();
+            $data['data'] = Note::whereIn('id', explode(',', $request->selected_item))->get();
         } else {
 
             if ($id == null) {

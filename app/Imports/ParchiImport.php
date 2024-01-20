@@ -36,7 +36,7 @@ class ParchiImport implements ToCollection
                 'gender' => $row[13] ?? 'null',
                 'nirvachan_name_eng' => $row[14] ?? 'null',
                 'relative_name_eng' => $row[15] ?? 'null',
-                'created_by' => auth()->user()->id
+                // 'created_by' => auth()->user()->id
             ];
             DB::table('notes')->insert($data);
         }
