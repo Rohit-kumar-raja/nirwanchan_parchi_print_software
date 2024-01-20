@@ -4,6 +4,7 @@ namespace App\Imports;
 
 use App\Models\Note;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\ToCollection;
 
 class ParchiImport implements ToCollection
@@ -37,7 +38,7 @@ class ParchiImport implements ToCollection
                 'relative_name_eng' => $row[15] ?? 'null',
                 'created_by' => auth()->user()->id
             ];
-            Note::create($data);
+            DB::table('notes')->insert($data);
         }
     }
 }
