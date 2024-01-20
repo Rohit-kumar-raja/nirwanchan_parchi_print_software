@@ -9,59 +9,61 @@
                         <div class="card">
                             <div class="card-header row justify-content-between">
                                 <div class="header-title col-2">
-                                    <a href="{{route('generate.print')}}" download="raja">ksdjfk</a>
+                                    <a href="{{ route('generate.print') }}" download="raja">ksdjfk</a>
 
                                     <h4 class="card-title">{{ $page }} List</h4>
                                     {{-- <div class="selectedDiv"> Selected row are: </div> --}}
                                 </div>
-                                <div class="col-2"> <a class="btn btn-primary add-list btn-sm text-white" data-toggle="modal"
-                                        data-target="#myModal"><i class="las la-plus mr-3"></i>Import
+                                <div class="col-2"> <a class="btn btn-primary add-list btn-sm text-white"
+                                        data-toggle="modal" data-target="#myModal"><i class="las la-plus mr-3"></i>Import
                                         {{ $page }}</a></div>
 
 
                                 {{-- Drop Down Added --}}
-                             <div class="col-8">
-                                <form action="{{ route('generate.print') }}" target="_blank">
+                                <div class="col-8">
+                                    <form action="{{ route('generate.print') }}" target="_blank">
 
-                                    <div class="row gap-3">
-                                        <div class="col-sm-3">
-                                            <label class="m-0" for="">Print Format</label>
-                                            <select name="format" class="form-control btn-sm btn">
-                                                <option value="8">8 * 1</option>
-                                                <option value="10">10 * 1</option>
-                                                <option value="12">12 * 1</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="dropdown">
-
-                                                <label class="m-0" for="">Print For</label> 
-                                                <select name="print_for"
-                                                    class=" form-control" aria-labelledby="dropdownMenuButton">
-                                                    <option value="lockshabha">लोकसभा</option>
-                                                    <option value="nagerpalika">नगर पालिका</option>
-                                                    <option value="nagernigam">नागरनिगम</option>
+                                        <div class="row gap-3">
+                                            <div class="col-sm-3">
+                                                <label class="m-0" for="">Print Format</label>
+                                                <select name="format" class="form-control btn-sm btn">
+                                                    <option value="8">8 * 1</option>
+                                                    <option value="10">10 * 1</option>
+                                                    <option value="12">12 * 1</option>
                                                 </select>
                                             </div>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <div class="dropdown">
-                                                <label class="m-0" for="">Epic No.</label>
-                                                <select name="epic" class="form-control">
-                                                    <option value="with">साथ</option>
-                                                    <option value="without">बिना</option>
-                                                </select>
+                                            <div class="col-sm-4">
+                                                <div class="dropdown">
+
+                                                    <label class="m-0" for="">Print For</label>
+                                                    <select name="print_for" class=" form-control"
+                                                        aria-labelledby="dropdownMenuButton">
+                                                        <option value="lockshabha">लोकसभा</option>
+                                                        <option value="nagerpalika">नगर पालिका</option>
+                                                        <option value="nagernigam">नागरनिगम</option>
+                                                    </select>
+                                                </div>
                                             </div>
+                                            <div class="col-sm-3">
+                                                <div class="dropdown">
+                                                    <label class="m-0" for="">Epic No.</label>
+                                                    <select name="epic" class="form-control">
+                                                        <option value="with">साथ</option>
+                                                        <option value="without">बिना</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-2 pt-2">
+                                                <button type="submit"
+                                                    class="btn btn-primary add-list btn-sm text-white mt-4 "><i
+                                                        class="las la-print mr-3"></i>Print
+                                                    {{ $page }}</button>
+                                            </div>
+                                            <input type="hidden" id="selected_item" name="selected_item">
                                         </div>
-                                        <div class="col-2 pt-2">
-                                            <button type="submit" class="btn btn-primary add-list btn-sm text-white mt-4 "><i
-                                                class="las la-print mr-3"></i>Print
-                                            {{ $page }}</button>
-                                        </div>
-                                    </div>
-                             
-                                </form>
-                             </div>
+
+                                    </form>
+                                </div>
                                 {{-- DropDown Button Ended --}}
 
 
@@ -74,7 +76,7 @@
                                             <tr class="light">
                                             <tr>
                                                 <th>
-                                                    {!! '<input type="checkbox" name="" class="allchecked" id="chkall" /> ' !!}
+
                                                 </th>
                                                 <th>S.no</th>
                                                 <th>page</th>
@@ -115,9 +117,12 @@
                                                 columns: [{
                                                         orderable: false,
                                                         searchable: false,
+                                                        data: 'id',
+                                                        name: 'id',
                                                         render(h) {
 
-                                                            return '<input type="checkbox" name="" class="allchecked" id="chkall" /> ';
+                                                            return '<input onclick="selectedRows(this)" type="checkbox"  name="" value="' +
+                                                                h + '" class="allchecked" id="chkall" /> ';
                                                         },
                                                     },
 
@@ -236,3 +241,19 @@
         <!-- // model -->
     @endslot
 </x-layout>
+
+<script>
+    var sleecte_arr = [];
+
+    function selectedRows(data) {
+        if (data.checked) {
+            sleecte_arr.push(data.value)
+        } else {
+            sleecte_arr = sleecte_arr.filter(function(item) {
+                return item !== data.value
+            })
+        }
+
+        document.querySelector('#selected_item').value = sleecte_arr.toString()
+    }
+</script>

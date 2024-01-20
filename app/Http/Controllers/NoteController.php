@@ -175,10 +175,15 @@ class NoteController extends Controller
 
     function print(Request $request, $id = null)
     {
-        if ($id == null) {
-            $data['data'] = Note::all();
+        if ($request->selected_item != '') {
+            $data['data'] = Note::whereIn('id',explode(',',$request->selected_item))->get();
         } else {
-            $data['data'] = Note::where('id', $id)->get();
+
+            if ($id == null) {
+                $data['data'] = Note::all();
+            } else {
+                $data['data'] = Note::where('id', $id)->get();
+            }
         }
 
 
