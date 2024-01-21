@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Parchi Generator</title>
+    <title>Parchi for - {{ request()->print_for_label }} Assembly - {{ request()->assembly_name}}</title>
 
 </head>
 <style>
@@ -23,10 +23,15 @@
         width: 100%;
         border-collapse: collapse;
     }
+    h2{
+        text-align: center;
+        border-bottom: 1px solid 
+    }
 </style>
 
 <body>
 
+    <h2 class="p-2 text-center border-bottom  border-2"> <b>{{ request()->print_for_label }} </b></h2>
 
 
     <table class=" datatable table table-striped " id="tblData">

@@ -91,7 +91,7 @@
 
                                 {{-- Drop Down Added --}}
                                 <div class="col-12">
-                                    <form action="{{ route('print.table') }}" download="raja" >
+                                    <form action="{{ route('print.table') }}"  target="_blank">
 
                                         <div class="row gap-3">
                                             <div class="col-sm-3">
