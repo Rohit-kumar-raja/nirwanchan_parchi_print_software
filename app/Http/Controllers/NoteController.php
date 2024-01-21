@@ -24,12 +24,14 @@ class NoteController extends Controller
     public function index(Request $request)
     {
         $page = $this->page;
+        $data = DB::table('notes')->select([
+            'id', 'page', 'data', 's_no', 'loksabha_name', 'assembly_name', 'both', 'part',
+            'section', 'epic', 'nirwachan_name', 'relative_name', 'age', 'house', 'gender',
+            'nirvachan_name_eng', 'relative_name_eng'
+        ])->orderBy('nirwachan_name', 'ASC')->get();
+
         if ($request->ajax()) {
-            $data = DB::table('notes')->select([
-                'id', 'page', 'data', 's_no', 'loksabha_name', 'assembly_name', 'both', 'part',
-                'section', 'epic', 'nirwachan_name', 'relative_name', 'age', 'house', 'gender',
-                'nirvachan_name_eng', 'relative_name_eng'
-            ])->orderBy('nirwachan_name', 'ASC')->get();
+
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
@@ -40,8 +42,8 @@ class NoteController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        $categories = Category::where('deleted_at', null)->get();
-        return view('note.index', compact('page'));
+        $data = DB::table('notes')-> distinct('assembly_name')->get(['assembly_name']);
+        return view('note.index', compact('page', 'data'));
     }
     /**
      * Show the form for creating a new resource.
@@ -208,7 +210,7 @@ class NoteController extends Controller
         } else {
             $data['data'] = Note::where('loksabha_name', $loksabha_name)->get();
         }
-        $data['page']=$this->page;
+        $data['page'] = $this->page;
         return view('note.table_print', $data);
     }
 }

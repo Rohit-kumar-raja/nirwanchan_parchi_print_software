@@ -7,31 +7,39 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card">
-                            <div class="card-header row justify-content-between">
-                                <div class="header-title col-2">
-                                   
 
-                                    <h4 class="card-title">  <a href="{{ route('print.table') }}" download="all_prichi"> <i class="fas fa-download"></i> {{ $page }} List</a></h4>
+
+                            <div class="card-header row justify-content-between py-0">
+                                <div class="header-title col-1">
+
+
+                                    <h5 class="card-title">{{ $page }} List</a></h5>
                                     {{-- <div class="selectedDiv"> Selected row are: </div> --}}
                                 </div>
-                                <div class="col-3">
+                                <div class="col-2">
                                     <a class="btn btn-primary add-list btn-sm text-white" data-toggle="modal"
                                         data-target="#myModal"><i class="las la-plus mr-3"></i>Import
                                         {{ $page }}</a>
-                                    <a class="btn btn-primary add-list btn-sm text-white" data-toggle="modal"
-                                        data-target="#myModal"><i class="las la-plus mr-3"></i>Import
-                                        {{ $page }}</a>
+
                                 </div>
 
 
                                 {{-- Drop Down Added --}}
-                                <div class="col-7">
+                                <div class="col-9">
                                     <form action="{{ route('generate.print') }}" target="_blank">
 
                                         <div class="row gap-3">
-                                            <div class="col-sm-3">
+
+                                            <div class="col-3">
+                                                <label class="m-0" for="">Print For label</label>
+                                                <input name="print_for_label" placeholder="Enter the label for print"
+                                                    class="form-control form-control-sm btn-sm btn">
+
+                                            </div>
+
+                                            <div class="col-sm-2">
                                                 <label class="m-0" for="">Print Format</label>
-                                                <select name="format" class="form-control btn-sm btn">
+                                                <select name="format" class="form-control form-control-sm btn-sm btn">
                                                     <option value="8">8 * 1</option>
                                                     <option value="10">10 * 1</option>
                                                     <option value="12">12 * 1</option>
@@ -41,7 +49,7 @@
                                                 <div class="dropdown">
 
                                                     <label class="m-0" for="">Print For</label>
-                                                    <select name="print_for" class=" form-control"
+                                                    <select name="print_for" class=" form-control form-control-sm"
                                                         aria-labelledby="dropdownMenuButton">
                                                         <option value="लोकसभा">लोकसभा</option>
                                                         <option value="नगर पालिका">नगर पालिका</option>
@@ -49,19 +57,63 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-1">
                                                 <div class="dropdown">
                                                     <label class="m-0" for="">Epic No.</label>
-                                                    <select name="epic" class="form-control">
+                                                    <select name="epic" class="form-control form-control-sm">
                                                         <option value="with">साथ</option>
                                                         <option value="without">बिना</option>
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-3 pt-2">
+                                            <div class="col-2 ">
                                                 <button type="submit"
                                                     class="btn btn-primary add-list btn-sm text-white mt-4 "><i
                                                         class="las la-print mr-3"></i>Print
+                                                    {{ $page }}</button>
+                                            </div>
+                                            <input type="hidden" id="selected_item" name="selected_item">
+                                        </div>
+
+                                    </form>
+                                </div>
+                                {{-- DropDown Button Ended --}}
+
+
+                            </div>
+
+
+
+                            <div class="card-header row justify-content-between py-0">
+
+
+
+
+                                {{-- Drop Down Added --}}
+                                <div class="col-12">
+                                    <form action="{{ route('print.table') }}" download="raja" >
+
+                                        <div class="row gap-3">
+                                            <div class="col-sm-3">
+                                                <label class="m-0" for="">Assembly Name</label>
+                                                <select name="assembly_name" class="form-control form-control-sm">
+                                                    @foreach ($data as $assembly)
+                                                        <option value="{{ $assembly->assembly_name }}">
+                                                            {{ $assembly->assembly_name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="col-3">
+                                                <label class="m-0" for="">Print For label</label>
+                                                <input name="print_for_label" placeholder="Enter the label for print"
+                                                    class="form-control form-control-sm btn-sm btn">
+
+                                            </div>
+
+                                            <div class="col-3 pt-2">
+                                                <button type="submit"
+                                                    class="btn btn-primary add-list btn-sm text-white mt-4 "><i
+                                                        class="fas fa-download mr-3"></i>Download
                                                     {{ $page }}</button>
                                             </div>
                                             <input type="hidden" id="selected_item" name="selected_item">
@@ -229,7 +281,7 @@
 
         <!-- The Modal -->
         <div class="modal fade" id="edit">
-            <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-dialog modal-dialog-scrollabel">
                 <div class="modal-content">
                     <!-- Modal Header -->
                     <div class="modal-header">
