@@ -91,15 +91,24 @@
 
                                 {{-- Drop Down Added --}}
                                 <div class="col-12">
-                                    <form action="{{ route('print.table') }}"  target="_blank">
+                                    <form action="{{ route('print.table') }}" target="_blank">
 
                                         <div class="row gap-3">
                                             <div class="col-sm-3">
                                                 <label class="m-0" for="">Assembly Name</label>
                                                 <select name="assembly_name" class="form-control form-control-sm">
-                                                    @foreach ($data as $assembly)
-                                                        <option value="{{ $assembly->assembly_name }}">
-                                                            {{ $assembly->assembly_name }}</option>
+                                                    @foreach ($assembly as $ass)
+                                                        <option value="{{ $ass->assembly_name }}">
+                                                            {{ $ass->assembly_name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="m-0" for="">Section Name</label>
+                                                <select name="section" class="form-control form-control-sm">
+                                                    @foreach ($section as $sec)
+                                                        <option value="{{ $sec->section }}">
+                                                            {{ $sec->section }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>

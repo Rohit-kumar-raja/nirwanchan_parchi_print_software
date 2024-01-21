@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Imports\ParchiImport;
 use App\Models\Category;
 use App\Models\Note;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Validator;
@@ -42,8 +43,9 @@ class NoteController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        $data = DB::table('notes')-> distinct('assembly_name')->get(['assembly_name']);
-        return view('note.index', compact('page', 'data'));
+        $assembly = DB::table('notes')->distinct('assembly_name')->get(['assembly_name']);
+        $section = DB::table('notes')->distinct('section')->get(['section']);
+        return view('note.index', compact('page', 'assembly', 'section'));
     }
     /**
      * Show the form for creating a new resource.
@@ -204,11 +206,11 @@ class NoteController extends Controller
 
     public function tablePrint(Request $request)
     {
-        $loksabha_name = $request->loksabha_name;
-        if ($loksabha_name == null) {
+        $assembly_name = $request->assembly_name;
+        if ($assembly_name == null) {
             $data['data'] = Note::all();
         } else {
-            $data['data'] = Note::where('loksabha_name', $loksabha_name)->get();
+            $data['data'] = Note::where('assembly_name', $assembly_name)->where('section', $request->section)->get();
         }
         $data['page'] = $this->page;
         return view('note.table_print', $data);
