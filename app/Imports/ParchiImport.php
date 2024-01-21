@@ -40,5 +40,6 @@ class ParchiImport implements ToCollection
             ];
             DB::table('notes')->insert($data);
         }
+        DB::table('notes')->where('page', 'null')->where('s_no', 'null')->delete();
     }
 }

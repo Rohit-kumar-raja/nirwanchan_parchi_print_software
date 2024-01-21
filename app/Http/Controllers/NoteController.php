@@ -25,9 +25,11 @@ class NoteController extends Controller
     {
         $page = $this->page;
         if ($request->ajax()) {
-            $data = DB::table('notes')->select(['id', 'page', 'data', 's_no', 'loksabha_name', 'assembly_name', 'both', 'part', 
-            'section', 'epic', 'nirwachan_name', 'relative_name', 'age', 'house', 'gender', 
-            'nirvachan_name_eng', 'relative_name_eng'])->orderBy('nirwachan_name', 'ASC')->get();
+            $data = DB::table('notes')->select([
+                'id', 'page', 'data', 's_no', 'loksabha_name', 'assembly_name', 'both', 'part',
+                'section', 'epic', 'nirwachan_name', 'relative_name', 'age', 'house', 'gender',
+                'nirvachan_name_eng', 'relative_name_eng'
+            ])->orderBy('nirwachan_name', 'ASC')->get();
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
@@ -196,5 +198,17 @@ class NoteController extends Controller
         Excel::import(new ParchiImport, $file_name);
         unlink($file_name);
         return response()->json(['success' => $this->page . " SuccessFully Updated "]);
+    }
+
+    public function tablePrint(Request $request)
+    {
+        $loksabha_name = $request->loksabha_name;
+        if ($loksabha_name == null) {
+            $data['data'] = Note::all();
+        } else {
+            $data['data'] = Note::where('loksabha_name', $loksabha_name)->get();
+        }
+        $data['page']=$this->page;
+        return view('note.table_print', $data);
     }
 }

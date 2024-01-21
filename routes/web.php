@@ -14,4 +14,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('note', NoteController::class);
     Route::post('parchi/import', [NoteController::class, 'import'])->name('note.import');
     Route::get('generate/print/{id?}', [NoteController::class, 'print'])->name('generate.print');
+    Route::get('print/table/data', [NoteController::class,'tablePrint'])->name('print.table');
 });

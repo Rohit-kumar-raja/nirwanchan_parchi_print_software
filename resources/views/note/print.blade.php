@@ -33,7 +33,7 @@
 </style>
 
 <body>
-    {{-- <h1 class="p-2 text-center border-bottom  border-2"> <b>नागर पालिका आम निर्वाचन , (बिहार)</b></h1> --}}
+    <h1 class="p-2 text-center border-bottom  border-2"> <b>{{ request()->print_for }} , (बिहार)</b></h1>
     <div class="row ">
         @foreach ($data as $d)
             <div

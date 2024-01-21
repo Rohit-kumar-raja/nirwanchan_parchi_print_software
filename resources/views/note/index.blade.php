@@ -9,18 +9,23 @@
                         <div class="card">
                             <div class="card-header row justify-content-between">
                                 <div class="header-title col-2">
-                                    <a href="{{ route('generate.print') }}" download="raja">ksdjfk</a>
+                                   
 
-                                    <h4 class="card-title">{{ $page }} List</h4>
+                                    <h4 class="card-title">  <a href="{{ route('print.table') }}" download="all_prichi"> <i class="fas fa-download"></i> {{ $page }} List</a></h4>
                                     {{-- <div class="selectedDiv"> Selected row are: </div> --}}
                                 </div>
-                                <div class="col-2"> <a class="btn btn-primary add-list btn-sm text-white"
-                                        data-toggle="modal" data-target="#myModal"><i class="las la-plus mr-3"></i>Import
-                                        {{ $page }}</a></div>
+                                <div class="col-3">
+                                    <a class="btn btn-primary add-list btn-sm text-white" data-toggle="modal"
+                                        data-target="#myModal"><i class="las la-plus mr-3"></i>Import
+                                        {{ $page }}</a>
+                                    <a class="btn btn-primary add-list btn-sm text-white" data-toggle="modal"
+                                        data-target="#myModal"><i class="las la-plus mr-3"></i>Import
+                                        {{ $page }}</a>
+                                </div>
 
 
                                 {{-- Drop Down Added --}}
-                                <div class="col-8">
+                                <div class="col-7">
                                     <form action="{{ route('generate.print') }}" target="_blank">
 
                                         <div class="row gap-3">
@@ -32,15 +37,15 @@
                                                     <option value="12">12 * 1</option>
                                                 </select>
                                             </div>
-                                            <div class="col-sm-4">
+                                            <div class="col-sm-3">
                                                 <div class="dropdown">
 
                                                     <label class="m-0" for="">Print For</label>
                                                     <select name="print_for" class=" form-control"
                                                         aria-labelledby="dropdownMenuButton">
-                                                        <option value="lockshabha">लोकसभा</option>
-                                                        <option value="nagerpalika">नगर पालिका</option>
-                                                        <option value="nagernigam">नागरनिगम</option>
+                                                        <option value="लोकसभा">लोकसभा</option>
+                                                        <option value="नगर पालिका">नगर पालिका</option>
+                                                        <option value="नागरनिगम">नागरनिगम</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -53,7 +58,7 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-2 pt-2">
+                                            <div class="col-3 pt-2">
                                                 <button type="submit"
                                                     class="btn btn-primary add-list btn-sm text-white mt-4 "><i
                                                         class="las la-print mr-3"></i>Print
