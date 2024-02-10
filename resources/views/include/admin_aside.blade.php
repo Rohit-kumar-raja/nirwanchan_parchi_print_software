@@ -50,6 +50,13 @@
 
                     </a>
                 </li>
+                <li
+                class="{{ Route::is('print.list.index') ? 'active' : '' }} ">
+                <a href="{{ route('print.list.index') }}" class="svg-icon">
+                    <i class="fas fa-book"></i> <span class="ml-4"> सभी  सूची</span>
+
+                </a>
+            </li>
                
             </ul>
         </nav>

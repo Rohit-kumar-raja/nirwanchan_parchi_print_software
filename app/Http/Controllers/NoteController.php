@@ -204,15 +204,5 @@ class NoteController extends Controller
         return response()->json(['success' => $this->page . " SuccessFully Updated "]);
     }
 
-    public function tablePrint(Request $request)
-    {
-        $assembly_name = $request->assembly_name;
-        if ($assembly_name == null) {
-            $data['data'] = Note::all();
-        } else {
-            $data['data'] = Note::where('assembly_name', $assembly_name)->where('section', $request->section)->get();
-        }
-        $data['page'] = $this->page;
-        return view('note.table_print', $data);
-    }
+  
 }

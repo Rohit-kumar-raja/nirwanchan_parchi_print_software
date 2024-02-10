@@ -30,10 +30,13 @@
     .custom-m {
         margin-top: 15.5px;
     }
+    .h1 b{
+        font-size: 20px;
+    }
 </style>
 
 <body>
-    <h1 class="p-2 text-center border-bottom  border-2"> <b>{{ request()->print_for_label }} </b></h1>
+    <h1 class="p-2 text-center border-bottom  border-2 font-xl h1"> <b>{{ request()->print_for_label }} </b></h1>
     <div class="row ">
         @foreach ($data as $d)
             <div
@@ -76,10 +79,10 @@
 
                         </div>
                         @if (request()->format != '12')
-                            <div class="col-3">
+                            {{-- <div class="col-3">
                                 <img width="100px" src="{{ asset('assets/images/profile/avtar.jpg') }}"
                                     class="img-fluid" alt="">
-                            </div>
+                            </div> --}}
                         @endif
                     </div>
 

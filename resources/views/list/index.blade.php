@@ -7,47 +7,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card">
-                            <div class="card-header row justify-content-between py-0">
 
-
-
-
-                                {{-- Drop Down Added --}}
-                                {{-- <div class="col-12">
-                                    <form id="print_list_table" action="{{ route('print.table') }}" target="_blank">
-                                        @csrf
-                                        <div class="row gap-3">
-                                            <div class="col-sm-5">
-                                                <label class="m-0" for="">Assembly Name</label>
-                                                <select
-                                                    onchange="selectDrop('print_list_table','{{ route('print.list.get.section') }}','section'), loadData()"
-                                                    id="assembly_name" name="assembly_name"
-                                                    class="form-control form-control-sm">
-                                                    @foreach ($assembly as $ass)
-                                                        <option value="{{ $ass->assembly_name }}">
-                                                            {{ $ass->assembly_name }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                            <div class="col-sm-5">
-                                                <label class="m-0" for="">Section Name</label>
-                                                <select onchange="loadData()" id="section" name="section"
-                                                    class="form-control form-control-sm">
-                                                    @foreach ($section as $sec)
-                                                        <option value="{{ $sec->section }}">
-                                                            {{ $sec->section }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                            <input type="hidden" name="" id="">
-                                        </div>
-
-                                    </form>
-                                </div> --}}
-                                {{-- DropDown Button Ended --}}
-
-
-                            </div>
 
                             <div class="card-header row justify-content-between py-0">
                                 <div class="header-title col-1">
@@ -56,20 +16,43 @@
                                     <h5 class="card-title">{{ $page }} List</a></h5>
                                     {{-- <div class="selectedDiv"> Selected row are: </div> --}}
                                 </div>
-                                <div class="col-2">
-                                    <a class="btn btn-primary add-list btn-sm text-white" data-toggle="modal"
-                                        data-target="#myModal"><i class="las la-plus mr-3"></i>Import
-                                        {{ $page }}</a>
 
-                                </div>
+
+
+                            </div>
+
+
+
+                            <div class="card-header row justify-content-between py-0">
+
+
 
 
                                 {{-- Drop Down Added --}}
-                                <div class="col-9">
-                                    <form action="{{ route('generate.print') }}" target="_blank">
-
+                                <div class="col-12">
+                                    <form action="{{ route('print.table') }}" id="print_list_table" target="_blank">
+                                        @csrf
                                         <div class="row gap-3">
-
+                                            <div class="col-sm-3">
+                                                <label class="m-0" for="">Assembly Name</label>
+                                                <select
+                                                    onchange="selectDrop('print_list_table','{{ route('print.list.get.section') }}','section')"
+                                                    name="assembly_name" class="form-control form-control-sm">
+                                                    @foreach ($assembly as $ass)
+                                                        <option value="{{ $ass->assembly_name }}">
+                                                            {{ $ass->assembly_name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="m-0" for="">Section Name</label>
+                                                <select id="section" name="section" class="form-control form-control-sm">
+                                                    @foreach ($section as $sec)
+                                                        <option value="{{ $sec->section }}">
+                                                            {{ $sec->section }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
                                             <div class="col-3">
                                                 <label class="m-0" for="">Print For label</label>
                                                 <input name="print_for_label" placeholder="Enter the label for print"
@@ -77,39 +60,10 @@
 
                                             </div>
 
-                                            <div class="col-sm-2">
-                                                <label class="m-0" for="">Print Format</label>
-                                                <select name="format" class="form-control form-control-sm btn-sm btn">
-                                                    <option value="8">8 * 1</option>
-                                                    <option value="10">10 * 1</option>
-                                                    <option value="12">12 * 1</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <div class="dropdown">
-
-                                                    <label class="m-0" for="">Print For</label>
-                                                    <select name="print_for" class=" form-control form-control-sm"
-                                                        aria-labelledby="dropdownMenuButton">
-                                                        <option value="लोकसभा">लोकसभा</option>
-                                                        <option value="नगर पालिका">नगर पालिका</option>
-                                                        <option value="नागरनिगम">नागरनिगम</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-1">
-                                                <div class="dropdown">
-                                                    <label class="m-0" for="">Epic No.</label>
-                                                    <select name="epic" class="form-control form-control-sm">
-                                                        <option value="with">साथ</option>
-                                                        <option value="without">बिना</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-2 ">
+                                            <div class="col-3 pt-2">
                                                 <button type="submit"
-                                                    class="btn btn-primary add-list btn-sm text-white mt-4 "><i
-                                                        class="las la-print mr-3"></i>Print
+                                                    class="btn btn-primary add-list btn-sm text-white mt-3 "><i
+                                                        class="fas fa-download mr-3"></i>Download
                                                     {{ $page }}</button>
                                             </div>
                                             <input type="hidden" id="selected_item" name="selected_item">
@@ -121,10 +75,6 @@
 
 
                             </div>
-
-
-
-
 
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -161,14 +111,12 @@
                                     </table>
 
 
-                                    {{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}
+                                    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
                                     <script type="text/javascript">
-                                        var DataTable='';
-                                        document.addEventListener("DOMContentLoaded", function() {
-
+                                        $(function() {
                                             var i = 1;
-                                            DataTable = $('.datatable').DataTable({
+                                            var table = $('.datatable').DataTable({
                                                 processing: true,
                                                 serverSide: true,
                                                 ajax: "{{ route('note.index') }}",
@@ -315,19 +263,4 @@
 
         document.querySelector('#selected_item').value = sleecte_arr.toString()
     }
-
-    // document.addEventListener("DOMContentLoaded", function()  {
-
-    function loadData() {
-        console.log(DataTable.settings()[0].ajax.data);
-        const assembly_name = document.getElementById('assembly_name');
-        const section = document.getElementById('section');
-        // Modify DataTable settings with additional filters
-        // DataTable.settings()[0].ajax.data.assembly_name1 = 'rjlsd';
-        // DataTable.settings()[0].ajax.data.section = 'lskdjfld';
-        //checking the date state date must be smaller the end date
-        DataTable.ajax.reload();
-
-    }
-    // });
 </script>
