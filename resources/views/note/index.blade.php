@@ -81,7 +81,7 @@
                                                 <label class="m-0" for="">Print Format</label>
                                                 <select name="format" class="form-control form-control-sm btn-sm btn">
                                                     <option value="8">8 * 1</option>
-                                                    <option value="10">10 * 1</option>
+                                                    {{-- <option value="10">10 * 1</option> --}}
                                                     <option value="12">12 * 1</option>
                                                 </select>
                                             </div>
@@ -91,9 +91,10 @@
                                                     <label class="m-0" for="">Print For</label>
                                                     <select name="print_for" class=" form-control form-control-sm"
                                                         aria-labelledby="dropdownMenuButton">
-                                                        <option value="लोकसभा">लोकसभा</option>
-                                                        <option value="नगर पालिका">नगर पालिका</option>
-                                                        <option value="नागरनिगम">नागरनिगम</option>
+                                                        <option value="loksambha">लोकसभा</option>
+                                                        <option value="vidhansabh">विधानसभा</option>
+                                                        <option value="nagerpalika">नगर पालिका</option>
+                                                        <option value="nagernigam">नागरनिगम</option>
                                                     </select>
                                                 </div>
                                             </div>
