@@ -191,10 +191,10 @@ class NoteController extends Controller
                 $data['data'] = Note::where('id', $id)->get();
             }
         }
-
+        $data['parts'] = Note::distinct('part')->get('part');
 
         // return view('note.print', $data);
-        return view('note.format.'.$request->print_for, $data);
+        return view('note.format.' . $request->print_for, $data);
     }
 
     public function import(Request $request)
@@ -204,6 +204,4 @@ class NoteController extends Controller
         unlink($file_name);
         return response()->json(['success' => $this->page . " SuccessFully Updated "]);
     }
-
-  
 }

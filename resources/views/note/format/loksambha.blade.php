@@ -18,7 +18,7 @@
         line-height: 0.4;
     }
 
-    .nir b{
+    .nir b {
         line-height: 0.9 !important;
     }
 
@@ -27,7 +27,8 @@
 
     }
 
-    .s p,h4 {
+    .s p,
+    h4 {
         line-height: 0.4;
     }
 
@@ -43,17 +44,32 @@
         font-size: 16px;
         font-weight: bold
     }
-    .mat b{
+
+    .mat b {
         line-height: 1.0;
     }
+
+    .print-page {
+        page-break-inside: avoid;
+    }
+
+    .page-break {
+        page-break-after:always;
+    }
 </style>
+@php
+    $previous_part = 1;
+@endphp
 
 <body>
     <h1 class="p-2 text-center border-bottom  border-2 font-xl h1"> <b>{{ request()->print_for_label }} </b></h1>
     <div class="row ">
+
         @foreach ($data as $d)
+        @if ($d->part != $previous_part) <div class="page-break  " ></div> <?php $previous_part++; ?>  @endif
+
             <div
-                class=" @if (request()->format == '12') col-4 @elseif (request()->format == '10') col-6 mt-4  @else col-6 mt-4 @endif  custom-m ">
+                class=" @if (request()->format == '12') col-4 @elseif (request()->format == '10') col-6 mt-4  @else col-6 mt-4 @endif  custom-m print-page  ">
                 <div class="card p-2 pt-2">
                     <div class="row w">
                         <div class="col-6">
@@ -82,14 +98,17 @@
 
                                     </div>
                                     <div class="col-6 ">
-                                        <p class=" text-danger">लिंग: {{ str_replace('लिंग :', '', $d->gender) }}</p>
+                                        <p class=" text-danger">लिंग: {{ str_replace('लिंग :', '', $d->gender) }}
+                                        </p>
                                     </div>
                                 </div>
                                 </p>
-                                <p class="mat"> <b> मतदान का सांख्य वा नाम :- {{ $d->both }}   <br> मतदान का तारीख : 16-05-2023 </b> 
-                                        
-                                       </b> </p>
-                                       <p class="text-center"><small> * मतदाता पृष्ठ संख्या 2 और क्रम स0 पर 1  पर देखे </small></p>
+                                <p class="mat"> <b> मतदान का सांख्य वा नाम :- {{ $d->both }} <br> मतदान का
+                                        तारीख : 16-05-2023 </b>
+
+                                    </b> </p>
+                                <p class="text-center"><small> * मतदाता पृष्ठ संख्या 2 और क्रम स0 पर 1 पर देखे
+                                    </small></p>
 
                             </div>
 
@@ -97,14 +116,15 @@
                         </div>
                         @if (request()->format != '12')
                             {{-- <div class="col-3">
-                                <img width="100px" src="{{ asset('assets/images/profile/avtar.jpg') }}"
-                                    class="img-fluid" alt="">
-                            </div> --}}
+                    <img width="100px" src="{{ asset('assets/images/profile/avtar.jpg') }}"
+                        class="img-fluid" alt="">
+                </div> --}}
                         @endif
                     </div>
 
                 </div>
             </div>
+
         @endforeach
 
     </div>
