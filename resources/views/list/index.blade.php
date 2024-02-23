@@ -47,6 +47,7 @@
                                             <div class="col-sm-3">
                                                 <label class="m-0" for="">Section Name</label>
                                                 <select id="section" name="section" class="form-control form-control-sm">
+                                                    <option value="all">All</option>
                                                     @foreach ($section as $sec)
                                                         <option value="{{ $sec->section }}">
                                                             {{ $sec->section }}</option>

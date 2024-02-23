@@ -193,6 +193,7 @@ class NoteController extends Controller
         }
 
 
+        // return view('note.print', $data);
         return view('note.format.'.$request->print_for, $data);
     }
 

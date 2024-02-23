@@ -49,7 +49,11 @@ class ListPrintController extends Controller
         if ($assembly_name == null) {
             $data['data'] = Note::all();
         } else {
-            $data['data'] = Note::where('assembly_name', $assembly_name)->where('section', $request->section)->get();
+            if ($request->section == 'all') {
+                $data['data'] = Note::where('assembly_name', $assembly_name)->orderBy('nirwachan_name')->get();
+            } else {
+                $data['data'] = Note::where('assembly_name', $assembly_name)->where('section', $request->section)->orderBy('nirwachan_name')->get();
+            }
         }
         $data['page'] = $this->page;
         return view('list.table_print', $data);

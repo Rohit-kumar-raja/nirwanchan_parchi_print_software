@@ -27,6 +27,11 @@
         text-align: center;
         border-bottom: 1px solid 
     }
+
+    table td{
+        padding-left: 4px;
+        padding-right: 4px
+    }
 </style>
 
 <body>
@@ -44,17 +49,18 @@
                 <th>s_no</th>
                 <th>loksabha name</th>
                 <th>assembly name</th>
-                <th>both</th>
                 <th>part</th>
-                <th>section</th>
+                {{-- <th>section</th> --}}
                 <th>epic</th>
                 <th>nirwachan name</th>
                 <th>relative name</th>
                 <th>age</th>
                 <th>house</th>
                 <th>gender</th>
-                <th>nirvachan name eng</th>
-                <th>relative name eng</th>
+                <th>both</th>
+
+                {{-- <th>nirvachan name eng</th>
+                <th>relative name eng</th> --}}
             </tr>
         </thead>
         <tbody>
@@ -66,17 +72,18 @@
                     <td>{{ $d->s_no }}</td>
                     <td>{{ $d->loksabha_name }}</td>
                     <td>{{ $d->assembly_name }}</td>
-                    <td>{{ $d->botd }}</td>
                     <td>{{ $d->part }}</td>
-                    <td>{{ $d->section }}</td>
+                    {{-- <td>{{ $d->section }}</td> --}}
                     <td>{{ $d->epic }}</td>
-                    <td>{{ $d->nirwachan_name }}</td>
+                    <td><b>{{ $d->nirwachan_name }}</b></td>
                     <td>{{ $d->relative_name }}</td>
                     <td>{{ $d->age }}</td>
-                    <td>{{ $d->house }}</td>
-                    <td>{{ $d->gender }}</td>
-                    <td>{{ $d->nirvachan_name_eng }}</td>
-                    <td>{{ $d->relative_name_eng }}</td>
+                    <td>{{  str_replace("मकान संख्या :","",$d->house) }}</td>
+                    <td>{{ str_replace("लिंग :","",$d->gender) }}</td>
+                    <td> <small>{{ $d->both }}</small></td>
+
+                    {{-- <td>{{ $d->nirvachan_name_eng }}</td>
+                    <td>{{ $d->relative_name_eng }}</td> --}}
                 </tr>
             @endforeach
         </tbody>

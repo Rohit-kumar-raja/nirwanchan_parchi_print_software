@@ -15,7 +15,11 @@
     }
 
     .w p {
-        line-height: 0.5;
+        line-height: 0.4;
+    }
+
+    .nir b{
+        line-height: 0.9 !important;
     }
 
     .d p {
@@ -23,15 +27,24 @@
 
     }
 
-    .s p {
-        line-height: 1.0;
+    .s p,h4 {
+        line-height: 0.4;
     }
 
     .custom-m {
         margin-top: 15.5px;
     }
-    .h1 b{
+
+    .h1 b {
         font-size: 20px;
+    }
+
+    .nirwachan {
+        font-size: 16px;
+        font-weight: bold
+    }
+    .mat b{
+        line-height: 1.0;
     }
 </style>
 
@@ -44,11 +57,11 @@
                 <div class="card p-2 pt-2">
                     <div class="row w">
                         <div class="col-6">
-                            <p><b>नगर निगम, {{ $d->nirwachan_name }}</b></p>
+                            <p class="nir"><b>नगर निगम: {{ request()->print_for_label }}</b></p>
                             <p><b>क्रमांक :{{ $d->s_no }}</b></p>
                         </div>
                         <div class="col-6 ">
-                            <p class=""><b>वार्ड संख्या :{{ $d->data }}</b></p>
+                            <p class=""><b>वार्ड संख्या:{{ $d->part }}</b></p>
                             @if (request()->epic == 'with')
                                 <p class=""><b>{{ $d->epic }}</b> </p>
                             @endif
@@ -58,22 +71,26 @@
                     <div class="row s">
                         <div class=" @if (request()->format == '12') col-12 @else col-9 @endif">
                             <div class="">
-                                <h4 class="text-danger">निर्वाचक का नाम : {{ $d->nirwachan_name }}</h4>
-                                <h6><b> {{ $d->relative_name }}</b></h6>
+                                <h4 class="text-danger">निर्वाचक का नाम : <span
+                                        class="nirwachan">{{ $d->nirwachan_name }}</span></h4>
+                                <h5><b> {{ $d->relative_name }}</b></h5>
                                 <p class="text-danger">उम : {{ $d->age }}</p>
                                 <div class="row d">
                                     <div class="col-6">
-                                        <p class="text-danger">गृह सांख्य : {{ $d->house }}</p>
+                                        <p class="text-danger">गृह सांख्य :
+                                            {{ str_replace('मकान संख्या :', '', $d->house) }}</p>
 
                                     </div>
                                     <div class="col-6 ">
-                                        <p class=" text-danger">लिंग: {{ $d->gender }}</p>
+                                        <p class=" text-danger">लिंग: {{ str_replace('लिंग :', '', $d->gender) }}</p>
                                     </div>
                                 </div>
-                                <p> <b>मतदान का तरीक : 09-06-2023</b>
                                 </p>
-                                <p> <b> मतदान का सांख्य वा नाम :- {{ $d->both }} ||
-                                        * मतदपतप ससचच पगष ससखखप 2 और कम ससखखप 1 पर दख</b>
+                                <p class="mat"> <b> मतदान का सांख्य वा नाम :- {{ $d->both }}   <br> मतदान का तारीख : 16-05-2023 </b> 
+                                        
+                                       </b> </p>
+                                       <p class="text-center"><small> * मतदाता पृष्ठ संख्या 2 और क्रम स0 पर 1  पर देखे </small></p>
+
                             </div>
 
 
